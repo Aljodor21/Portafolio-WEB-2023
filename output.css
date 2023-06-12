@@ -664,6 +664,10 @@ video {
   width: 100%;
 }
 
+.w-\[80\%\] {
+  width: 80%;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -917,6 +921,20 @@ video {
 
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.br-2.animado {
+  opacity: 0;
+}
+
+.br-1.animado {
+  transform: rotate(45deg) translate(9px, 8px);
+  transform-origin: 0% 100%;
+}
+
+.br-3.animado {
+  transform: rotate(-45deg) translate(-6px, 8px);
+  transform-origin: 0% 100%;
 }
 
 .hover\:bg-sky-500:hover {
