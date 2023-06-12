@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Mi hoja de estilo tailwind-->
+    <link rel="stylesheet" href="./output.css" />
+
+    <!--Fuentes de mi proyecto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Noto+Sans&family=PT+Sans&family=Roboto&display=swap"
+        rel="stylesheet" />
+
+    <!--Iconos de bootstrap5-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+
+    <!--Mis scripts js-->
+    <script src="./app.js" defer></script>
+    <script src="./alrt.js"></script>
+
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (
+            localStorage.getItem("color-theme") === "dark" ||
+            (!("color-theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    </script>
+
+    <title>Portafolio Web</title>
+</head>
+
+<body class="bg-sky-50 text-stone-900 dark:bg-primary dark:text-cyan-50 font-roboto">
+    <header>
+        <!--  INICIO MENU  -->
+        <nav class="flex justify-between py-10 m-auto px-10 text-lg font-medium tracking-widest md:items-center">
+            <a href="">
+                <img src="./images/icono.png" alt="" width="28" />
+            </a>
+            <div id="menu"
+                class="bg-white dark:bg-slate-800 p-7 h-[380px] w-[320px] md:flex flex-col items-start justify-around rounded-lg text-dark dark:text-white md:flex-row md:w-full md:py-0 md:h-[50px] md:bg-inherit md:dark:bg-primary hidden">
+                <ul class="flex h-5/6 flex-col justify-around md:flex-row md:justify-center w-full">
+                    <li class="md:px-5 hover:text-sky-600"><a href="#info">Quién Soy</a></li>
+                    <li class="md:px-5 hover:text-sky-600">
+                        <a href="#skillSections">Habilidades</a>
+                    </li>
+                    <li class="md:px-5 hover:text-sky-600"><a href="#proyectos">Proyectos</a></li>
+                    <li class="md:px-5 hover:text-sky-600">
+                        <a href="#contacto">Contáctame</a>
+                    </li>
+                </ul>
+                <!-- BOTON MODO OSCURO -->
+                <button id="darkButton">
+                    <i class="bi bi-moon-stars-fill text-sky-600 text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- BOTON MENU HAMBURGUESA -->
+            <button id="menu-button" class="absolute top-10 right-12 md:hidden">
+                <span class="br-1 block bg-black dark:bg-white my-2 rounded-md h-[3px] w-[28px]"></span>
+                <span class="br-2 block bg-black dark:bg-white my-2 rounded-md h-[3px] w-[28px]"></span>
+                <span class="br-3 block bg-black dark:bg-white my-2 rounded-md h-[3px] w-[28px]"></span>
+            </button>
+        </nav>
+        <!-- FIN DEL MENU  -->
+    </header>
+
+    <main>
+        <!-- #1 SECCION INFO-->
+        <section id="info" class="my-0 flex flex-col lg:flex-row lg:h-[850px]">
+            <div class="p-10 lg:w-[80%] lg:h-[400px] lg:self-center">
+                <h1 class="text-sky-600 dark:text-sky-300 text-2xl font-bold tracking-widest leading-10">
+                    Hola, soy
+                </h1>
+                <p class="py-2 text-3xl font-bold text-slate-600 dark:text-slate-300">
+                    Alejandro Toro G.
+                </p>
+                <p class="text-3xl font-bold text-slate-500 dark:text-slate-600">
+                    Desarrollo Aplicaciones Web
+                </p>
+                <p class="mt-5 text-lg">
+                    Soy desarrollador de software que se especializa en crear
+                    aplicaciones WEB excepcionales. Dando gestión en el fron-tend y el
+                    back-end implementando diversas tecnologías.
+                </p>
+                <!-- REDES SOCIALES -->
+                <div class="py-6">
+                    <a target="_blank" href="https://www.linkedin.com/in/alejandro-toro-guar%C3%ADn-49368723b/" class="pr-2 text-2xl hover:text-sky-600"><i class="bi bi-linkedin px-2"></i></a>
+                    <a target="_blank" href="https://github.com/Aljodor21" class="pr-2 text-2xl hover:text-sky-600"><i class="bi bi-github px-2"></i></a>
+                </div>
+                <div>
+                    <a href="#contacto"><button
+                        class="border-2 rounded border-sky-500 p-4 w-[250px] text-lg tracking-widest hover:bg-sky-500 hover:dark:text-slate-900 ease-out duration-300">
+                        Contrátame 
+                    </button></a>
+                    
+                </div>
+            </div>
+            <!-- Contenedor para la Imagen -->
+            <div class="my-10 w-full">
+                <div
+                    class="w-[300px] h-[320px] m-auto bg-[url('./images/foto.png')] lg:bg-[url('./images/foto.png')] bg-cover rounded-lg lg:w-[100%] lg:h-[90%] lg:bg-center lg:bg-no-repeat lg:bg-[length:454px_549px]">
+                </div>
+            </div>
+        </section>
+
+        <!-- #2 SECCION TECH SKILLS AND SOFT SKILLS-->
+        <h2 id="skillSections" class="text-3xl text-slate-700 dark:text-white font-bold tracking-widest w-[85] m-auto text-center pt-8">
+            Habilidades
+        </h2>
+
+        <section class="my-12 flex flex-col w-[84%] m-auto lg:flex-row lg:w-[50%] lg:my-28" id="skillSection">
+            <div class="flex justify-around lg:flex-col lg:w-[20%]">
+                <button type="button" id="link1" data-id="ts"
+                    class="border-b-2 hover:dark:bg-slate-700 w-full px-4 py-1 hover:bg-white focus:bg-white focus:border-sky-500 focus:dark:bg-slate-700 lg:border-l-2 lg:border-b-0 lg:h-full lg:text-left border-sky-500 bg-white dark:bg-slate-700">
+                    Technical Skills
+                </button>
+
+                <button type="button" id="link2" data-id="ss"
+                    class="border-b-2 hover:dark:bg-slate-700 w-full px-4 py-1 hover:bg-white focus:bg-white focus:border-sky-500 focus:dark:bg-slate-700 lg:border-l-2 lg:border-b-0 lg:h-full lg:text-left">
+                    Soft skills
+                </button>
+            </div>
+
+            <!--Container skills -->
+            <div class="my-5 lg:px-10 lg:my-0 lg:max-w-[800px] m-auto">
+                <!--Tech skills-->
+                <article id="ts ">
+                    <ul class="m-auto">
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-filetype-java"></i>
+                            Java
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-filetype-py"></i>
+                            Python
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-filetype-js"></i>
+                            JavaScript
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-filetype-sql"></i>
+                            MySql
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-filetype-html"></i>
+                            HTML
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-filetype-css"></i>
+                            CSS
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-bootstrap"></i>
+                            Bootstrap
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-bootstrap-reboot"></i>
+                            Tailwind
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-filetype-js"></i>
+                            NodeJs
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-filetype-js"></i>
+                            ExpressJs
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-git"></i>
+                            GIT
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-terminal-dash"></i>
+                            Bash / shell
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-braces"></i>
+                            Visual Studio Code
+                        </li>
+                    </ul>
+                </article>
+
+                <!--Seccion oculta por defecto-->
+                <!--Soft Skills-->
+                <article id="ss" class="hidden">
+                    <ul class="m-auto">
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-align-center"></i>
+                            Liderazgo
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-align-center"></i>
+                            Proactividad
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-align-center"></i>
+                            Efectividad
+                        </li>
+                        <li>
+                            <span class="pr-2 text-sky-500 font-black">&#9655;</span>
+                            <i class="bi bi-align-center"></i>
+                            Trabajo en equipo
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- #3 SECCION PROYECTOS-->
+        <h3 id="proyectos" class="text-3xl text-slate-700 dark:text-white my-5 px-12 font-bold tracking-widest md:text-center">
+            Mis Ultimos Proyectos
+        </h3>
+
+        <section class="my-12 flex flex-col items-center justify-center w-[90%] m-auto lg:grid lg:grid-cols-2">
+            
+            <!--Mi primer proyecto-->
+            <div class="border-1 rounded-lg bg-white dark:bg-slate-800 m-5 w-[100%] lg:w-auto">
+                <div class="m-2">
+                    <img src="./images/app1.png" alt="app1" class="opacity-80 hover:opacity-100" />
+                    <h4 class="font-bold my-2">Tu mascota feliz - Spa</h4>
+                    <article class="flex justify-between">
+                        <div class="flex flex-nowrap items-center">
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                Bootstrap
+                            </span>
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                Node.Js
+                            </span>
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                Express.Js
+                            </span>
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                MySql
+                            </span>
+                        </div>
+                        <div class="text-xl text-slate-600 dark:text-slate-200 pr-2 flex flex-nowrap">
+                            <a target="_blank" href="https://github.com/Aljodor21/Tu-Macota-Feliz-Backend.git"><i class="bi bi-github px-2"></i></a>
+                            <a target="_blank" href="https://tumascotafeliz.herokuapp.com/"><i class="bi bi-eye px-2"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!--Mi segundo proyecto-->
+            <div class="border-1 rounded-lg bg-white dark:bg-slate-800 m-5 w-[100%] lg:w-auto">
+                <div class="m-2">
+                    <img src="./images/app2.png" alt="app1" class="opacity-80 hover:opacity-100" />
+                    <h4 class="font-bold my-2">Talentimetria - Servicio</h4>
+                    <article class="flex justify-between">
+                        <div class="flex flex-nowrap items-center">
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                Bootstrap
+                            </span>
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                Express.Js
+                            </span>
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                Node.Js
+                            </span>
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                MySql
+                            </span>
+                        </div>
+                        <div class="text-xl text-slate-600 dark:text-slate-200 pr-2 flex flex-nowrap">
+                            <a target="_blank" href="https://github.com/Aljodor21/API-Talentimetria"><i class="bi bi-github px-2"></i></a>
+                            <a target="_blank" href="https://api-talentimetria.up.railway.app/"><i class="bi bi-eye px-2"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!--Mi tercer proyecto-->
+            <div class="border-1 rounded-lg bg-white dark:bg-slate-800 m-5 w-[100%] lg:w-auto">
+                <div class="m-2">
+                    <img src="./images/app3.png" alt="app1" class="opacity-80 hover:opacity-100" />
+                    <h4 class="font-bold my-2">Formulario</h4>
+                    <article class="flex justify-between">
+                        <div class="flex flex-nowrap items-center">
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                HTML
+                            </span>
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                CSS
+                            </span>
+                        </div>
+                        <div class="text-xl text-slate-600 dark:text-slate-200 pr-2 flex flex-nowrap">
+                            <a target="_blank" href="https://github.com/Aljodor21/Pagina-Registro"><i class="bi bi-github px-2"></i></a>
+                            <a target="_blank" href="https://formulariodatos.netlify.app/"><i class="bi bi-eye px-2"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!--Mi cuarto proyecto-->
+            <div class="border-1 rounded-lg bg-white dark:bg-slate-800 m-5 w-[100%] lg:w-auto">
+                <div class="m-2">
+                    <img src="./images/app4.png" alt="app1" class="opacity-80 hover:opacity-100" />
+                    <h4 class="font-bold my-2">Pagina documentación</h4>
+                    <article class="flex justify-between">
+                        <div class="flex flex-nowrap items-center">
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                HTML
+                            </span>
+                            <span class="bg-slate-200 rounded-lg px-2 mr-2 text-slate-700">
+                                CSS
+                            </span>
+                        </div>
+                        <div class="text-xl text-slate-600 dark:text-slate-200 pr-2 flex flex-nowrap">
+                            <a target="_blank" href="https://github.com/Aljodor21/Pagina-Documentacion"><i class="bi bi-github px-2"></i></a>
+                            <a target="_blank" href="https://paginadocumentacion.netlify.app/"><i class="bi bi-eye px-2"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- #4 SECCION CONTACTO-->
+        <h3 id="contacto" class="text-3xl text-slate-700 dark:text-white mt-12 mb-10 px-10 font-bold tracking-widest text-center">
+            Contáctame
+        </h3>
+
+        <section class="flex flex-col w-[90%] m-auto">
+            <form action="https://formsubmit.co/54a1844250cf0a3a6d44a85a8497f83c" class="w-[90%] md:max-w-[600px] m-auto" method="POST" >
+                <div>
+                    <input placeholder="info@ejemplo.com" type="email" name="email" id="email"
+                        class="p-3 w-full rounded-lg focus:outline-none focus:ring focus:ring-blue-400 text-black" required />
+                </div>
+
+                <div class="py-3">
+                    <input placeholder="Nombre" type="text" name="name" id="name"
+                        class="p-3 w-full rounded-lg focus:outline-none focus:ring focus:ring-blue-400 text-black" required />
+                </div>
+
+                <div>
+                    <textarea placeholder="Mensaje" name="msj" id="msj" rows="5"
+                        class="p-3 w-full rounded-lg focus:outline-none focus:ring focus:ring-blue-400 text-black"
+                        required></textarea>
+                </div>
+
+                <div class="my-3">
+                    <button id="submit" class="bg-sky-600 text-white p-3 w-full rounded-lg text-xl tracking-widest">
+                        Enviar Mensaje
+                    </button>
+                </div>
+
+                <!--Opciones para el correo-->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://portafolio-alejandrotg.netlify.app/">
+                
+            </form>
+
+            <!-- #5 Footer-->
+            <footer class="text-center mt-12 mb-5">
+                <p>Desarrollado por Alejandro Toro G.</p>
+                <div class="my-2">
+                    <a target="_blank" href="https://github.com/Aljodor21"> <i class="bi bi-github hover:text-sky-500 px-2"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/alejandro-toro-guar%C3%ADn-49368723b/"><i class="bi bi-linkedin hover:text-sky-500 px-2"></i></a>
+                </div>
+            </footer>
+
+        </section>
+    </main>
+</body>
+
+</html>
